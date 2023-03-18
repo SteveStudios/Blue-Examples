@@ -1,0 +1,20 @@
+open System
+
+target = "NULL"
+
+main()
+    <<cpp>>
+    target = "cpp"
+    <<end>>
+    <<groovy>>
+    target = "groovy"
+    <<end>>
+    <<haxe>>
+    target = "haxe"
+    <<end>>
+    <<javascript>>
+    target = "javascript"
+    <<end>>
+
+    System/varTrace(target)
+end

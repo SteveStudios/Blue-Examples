@@ -1,0 +1,17 @@
+
+	{
+		"build_commands":{
+		   "cpp":{
+			  "command":"g++ -w -o export/bin/Main export/cppsrc/Main.cpp -std=c++20 -lwsock32 -lWs2_32"
+		   },
+		   "groovy":{
+			  "command":"groovyc export/groovysrc/Main.groovy"
+		   },
+		   "haxe":{
+			  "command":"haxe -cp src --main export.hxsrc.Main --cpp export/bin"
+		   },
+		   "javascript":{
+		      "command":"node export/jssrc/Main.js"
+		   }
+		}
+    } 

@@ -1,0 +1,55 @@
+open ArrayTools
+open Random
+open System
+
+targetInject!("#include <time.h>")
+targetInject!("#include <stdlib.h>")
+
+possibleOptions = ["Rock", "Paper", "Scissors"]
+
+method validateMove()
+    move = System/varRead("Enter your move: ")
+    loop i in 1 until ArrayTools/arraySize(possibleOptions)
+        if move not = possibleOptions[i] and i = ArrayTools/arraySize(possibleOptions) - 1 then
+            move = "NULL"
+        else
+            break
+        end
+    end
+    return move
+end
+
+main(args)
+    targetInject!("srand(time(0));")
+    <<!cpp>>
+    print!("This example will only work on the C++ target!")
+    System/shutdown(1)
+    <<end>>
+
+    tries = 0
+    targetInject!("tries = atoi(std::any_cast<char*>(args[1].varToCast));")
+    loop i in 0 until tries 
+        move = validateMove()
+        targetInject!("while (move == 'NULL') {")
+        targetInject!("}")
+        computerMove = possibleOptions[Random/randint(3)]
+        targetInject!("std::cout << 'Computer picked: ';")
+        System/varTrace(computerMove)
+
+        if (computerMove = "Scissors"
+           and move = "Rock") or
+           (computerMove = "Rock"
+           and move = "Paper") or
+           (computerMove = "Paper"
+           and move = "Scissors") then
+            print!("Player is the winner!")
+        else if (computerMove = "Paper"
+            and move = "Rock") or
+            (computerMove = "Scissors"
+            and move = "Paper") or
+            (computerMove = "Rock"
+            and move = "Scissors") then
+            print!("Computer is the winner!")
+        end
+    end
+end

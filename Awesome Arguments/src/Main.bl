@@ -1,0 +1,9 @@
+open System
+open ArrayTools
+
+main(args)
+    *** First argument is the program name ***
+    loop i in 2 until ArrayTools/arraySize(args)
+        System/varTrace(args[i])
+    end
+end

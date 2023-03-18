@@ -1,0 +1,7 @@
+open Strings
+open System
+
+main()
+    thename = System/varRead("Enter your name: ")
+    System/varTrace(Strings/stringSub(thename, 0, 1))
+end

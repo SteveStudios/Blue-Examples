@@ -1,0 +1,25 @@
+package export.hxsrc;
+
+class MathTools {
+	public static var one:Dynamic = 1;
+
+	public static function arcsine(x:Dynamic):Dynamic {
+		return Math.asin(x);
+	}
+
+	public static function arccos(x:Dynamic):Dynamic {
+		return Math.acos(x);
+	}
+
+	public static function cosine(x:Dynamic):Dynamic {
+		return Math.cos(x);
+	}
+
+	public static function sine(x:Dynamic):Dynamic {
+		return Math.sin(x);
+	}
+
+	public static function floorValue(x:Dynamic):Dynamic {
+		return Math.floor(x);
+	}
+}

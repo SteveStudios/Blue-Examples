@@ -1,0 +1,6 @@
+targetInject!("#include <time.h>")
+
+method randint(maximum)
+    targetInject!("return rand() % (int)maximum;");
+    return
+end
